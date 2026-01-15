@@ -35,6 +35,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '.herokuapp.com',
     '127.0.0.1',
+    'capstone-project-blog-7fbe8833f003.herokuapp.com',
 ]
 
 
