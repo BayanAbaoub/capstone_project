@@ -11,12 +11,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='post',
+            model_name='review',
             name='excerpt',
             field=models.TextField(blank=True),
         ),
         migrations.AddField(
-            model_name='post',
+            model_name='review',
             name='updated_on',
             field=models.DateTimeField(auto_now=True),
         ),
