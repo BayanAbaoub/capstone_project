@@ -306,6 +306,7 @@ body {
     color: #fff;
 }
 
+
 /* Responsive sizing for smaller screens */
 @media (max-width: 768px) {
     .movie-title-image {
