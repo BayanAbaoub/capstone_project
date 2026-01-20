@@ -160,60 +160,52 @@ body {
 }
 
 .masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 50vh;
-    width: 100%;
+    background-color: #fbde4a;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    min-height: 400px;
 }
 
 .masthead-text {
-    background-color: #fbde4a;
-    color: #e73034;
-    position: relative;
-    text-align: center;
-    padding-top: 8%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .masthead-image {
-    position: relative;
-    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #fbde4a;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
-
-.review-link {
-    text-decoration: none;
-    color: #445261;
-}
-
-.review-link:hover,
-.page-link {
-    color: #E84610;
+.masthead-image img {
+    max-width: 100%;
+    max-height: 500px;  /* Limit poster height */
+    width: auto;  /* Maintain aspect ratio */
+    height: auto;  /* Maintain aspect ratio */
+    object-fit: contain;  /* Show entire poster without cropping */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .review-title {
-    margin-top: 10%;
-    margin-left: 5%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e73034;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
 }
 
 .review-subtitle {
-    margin-left: 5%;
-    color: lightgray;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
 }
+
 
 .btn-signup,
 .btn-edit {
@@ -338,31 +330,25 @@ body {
     border-color: rgba(200, 40, 44, 1);
 }
 
-/* Profile page favourite button */
-.card-footer.bg-transparent {
-    background-color: transparent !important;
-}
-
-.btn-danger.btn-sm {
-    font-size: 0.875rem;
-    padding: 0.375rem 0.75rem;
-}
-
-.btn-danger.btn-sm:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
-}
-
 /* Responsive sizing for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+    .submit-review-image {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
     .movie-title-image {
-        max-width: 400px;
+        max-width: 280px;
     }
 }
 
-@media (max-width: 480px) {
-    .movie-title-image {
-        max-width: 280px;
+@media (max-width: 576px) {
+    .movie-poster-card .card-img-top {
+        height: 350px;
+    }
+
+    .masthead-image img {
+        max-height: 300px;  /* Even smaller on phones */
     }
 }
 
@@ -374,25 +360,31 @@ body {
     .movie-poster-card .card-img-top {
         height: 400px;
     }
-}
 
-@media (max-width: 576px) {
-    .movie-poster-card .card-img-top {
-        height: 350px;
+    .movie-title-image {
+        max-width: 400px;
     }
-}
-
-/* Responsive sizing for submit image */
-@media (max-width: 768px) {
+    
     .submit-review-image {
         max-width: 600px;
         border-radius: 15px;
     }
-}
 
-@media (max-width: 480px) {
-    .submit-review-image {
-        max-width: 100%;
-        border-radius: 10px;
+    .masthead {
+        padding: 2rem 0;
+        min-height: 250px;
+    }
+    
+    .masthead-image img {
+        max-height: 350px;  /* Smaller on mobile */
+    }
+    
+    .review-title {
+        font-size: 1.8rem;
     }
 }
+
+
+
+
+
