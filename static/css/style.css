@@ -279,6 +279,17 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(231, 48, 52, 0.25);
 }
 
+
+/* Submit page image styling */
+.submit-review-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 2rem 0;
+}
+
 /* Responsive sizing for smaller screens */
 @media (max-width: 768px) {
     .movie-title-image {
@@ -305,5 +316,20 @@ body {
 @media (max-width: 576px) {
     .movie-poster-card .card-img-top {
         height: 350px;
+    }
+}
+
+/* Responsive sizing for submit image */
+@media (max-width: 768px) {
+    .submit-review-image {
+        max-width: 600px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .submit-review-image {
+        max-width: 100%;
+        border-radius: 10px;
     }
 }

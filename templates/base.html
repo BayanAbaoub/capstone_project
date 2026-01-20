@@ -3,11 +3,12 @@
 {% url 'account_login' as login_url %} 
 {% url 'account_signup' as signup_url %} 
 {% url 'account_logout' as logout_url %}
+{% url 'submit' as submit_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
   <head>
-    <title>CodeStar Blog</title>
+    <title>Reel Reviews</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google Fonts CSS -->
@@ -68,6 +69,15 @@
                 aria-current="page"
                 href="{% url 'home' %}"
                 >Home</a
+              >
+            </li>
+                        <li class="nav-item">
+              <a
+                class="nav-link
+                {% if request.path == submit_url %}active{%endif%}"
+                aria-current="page"
+                href="{% url 'submit' %}"
+                >Submit</a
               >
             </li>
             {% if user.is_authenticated %}
