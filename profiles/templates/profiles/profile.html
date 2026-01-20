@@ -13,7 +13,7 @@
                             {% if profile.profile_picture %}
                                 <img src="{{ profile.profile_picture.url }}" alt="{{ user.username }}" class="profile-picture">
                             {% else %}
-                                <img src="{% static 'images/default-avatar.png' %}" alt="Default Avatar" class="profile-picture">
+                                <img src="{% static 'images/default-icon.png' %}" alt="Default Icon" class="profile-picture">
                             {% endif %}
                         </div>
                         <div class="col-md-10">
@@ -60,7 +60,7 @@
                         <div class="card-footer text-muted">
                             <div class="d-flex justify-content-between align-items-center">
                                 <small>
-                                    <img src="{% static 'images/author-icon.png' %}" alt="Author" class="author-avatar-small">
+                                    <img src="{% static 'images/default-icon.png' %}" alt="Author" class="author-avatar-small">
                                     {{ review.author }}
                                 </small>
                                 <small>{{ review.created_on|date:"M d, Y" }}</small>

@@ -34,16 +34,19 @@ def edit_profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
     
     if request.method == 'POST':
+        # Important: Pass both request.POST and request.FILES to handle image uploads
         form = UserProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully!')
             return redirect('profile')
+        else:
+            messages.error(request, 'There was an error updating your profile.')
     else:
         form = UserProfileForm(instance=profile)
     
     return render(
         request,
         'profiles/edit_profile.html',
-        {'form': form}
+        {'form': form, 'profile': profile}
     )

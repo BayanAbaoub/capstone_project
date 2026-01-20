@@ -7,5 +7,12 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ['bio', 'profile_picture']
         widgets = {
-            'bio': forms.Textarea(attrs={'rows': 4}),
+            'bio': forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),
+        }
+        labels = {
+            'bio': 'Biography',
+            'profile_picture': 'Profile Picture'
+        }
+        help_texts = {
+            'profile_picture': 'Upload a profile picture (optional)'
         }

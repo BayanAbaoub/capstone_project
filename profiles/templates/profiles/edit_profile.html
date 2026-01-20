@@ -8,6 +8,15 @@
         <div class="col-md-8 offset-md-2">
             <h1>Edit Profile</h1>
             <hr>
+                        <!-- Display current profile picture -->
+            <div class="text-center mb-4">
+                <h5>Current Profile Picture:</h5>
+                {% if form.instance.profile_picture and form.instance.profile_picture.url != 'placeholder' %}
+                    <img src="{{ form.instance.profile_picture.url }}" alt="Current Profile Picture" class="profile-picture mb-3">
+                {% else %}
+                    <img src="{% static 'images/default-icon.png' %}" alt="Default Icon" class="profile-picture mb-3">
+                {% endif %}
+            </div>
             
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
