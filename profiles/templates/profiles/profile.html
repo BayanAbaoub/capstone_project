@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Profile Header -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2 text-center">
+                            {% if profile.profile_picture %}
+                                <img src="{{ profile.profile_picture.url }}" alt="{{ user.username }}" class="profile-picture">
+                            {% else %}
+                                <img src="{% static 'images/default-avatar.png' %}" alt="Default Avatar" class="profile-picture">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-10">
+                            <h1>{{ user.username }}</h1>
+                            <p class="text-muted">Member since {{ user.date_joined|date:"M d, Y" }}</p>
+                            {% if profile.bio %}
+                                <p>{{ profile.bio }}</p>
+                            {% else %}
+                                <p class="text-muted">No bio added yet.</p>
+                            {% endif %}
+                            <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-2">Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Favourite Reviews Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <h2>My Favourite Reviews ({{ favourite_reviews.count }})</h2>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="row mt-3">
+        {% if favourite_reviews %}
+            {% for review in favourite_reviews %}
+            <div class="col-md-4 mb-4">
+                <div class="card movie-poster-card">
+                    <a href="{% url 'review_detail' review.slug %}" class="review-link">
+                        {% if review.featured_image %}
+                            <img src="{{ review.featured_image.url }}" class="card-img-top" alt="{{ review.title }}">
+                        {% else %}
+                            <img src="{% static 'images/default-movie-poster.png' %}" class="card-img-top" alt="{{ review.title }}">
+                        {% endif %}
+                        
+                        <div class="card-body">
+                            <h3 class="card-title">{{ review.title }}</h3>
+                            <p class="card-text">{{ review.excerpt }}</p>
+                        </div>
+                        
+                        <div class="card-footer text-muted">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small>
+                                    <img src="{% static 'images/author-icon.png' %}" alt="Author" class="author-avatar-small">
+                                    {{ review.author }}
+                                </small>
+                                <small>{{ review.created_on|date:"M d, Y" }}</small>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Remove from Favourites button (outside the link) -->
+                    <div class="card-footer bg-transparent border-0 text-center pb-3">
+                        <form method="post" action="{% url 'review_favourite' review.slug %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fas fa-heart-broken"></i> Remove from Favourites
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <p class="mb-0">You haven't favourited any reviews yet. Browse our <a href="{% url 'home' %}" class="alert-link">reviews</a> and start adding favourites!</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

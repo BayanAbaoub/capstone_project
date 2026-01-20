@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from .models import Review, Comment
 from .forms import CommentForm
 
@@ -86,3 +87,25 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('review_detail', args=[slug]))
+
+@login_required
+def review_favourite(request, slug):
+    """
+    Toggle favourite status for a review
+    """
+    review = get_object_or_404(Review, slug=slug)
+    
+    if review.favourites.filter(id=request.user.id).exists():
+        review.favourites.remove(request.user)
+        messages.add_message(request, messages.SUCCESS, 'Removed from favourites')
+    else:
+        review.favourites.add(request.user)
+        messages.add_message(request, messages.SUCCESS, 'Added to favourites')
+    
+        # Redirect back to the page the user came from
+    # If no referrer, default to review detail page
+    next_url = request.META.get('HTTP_REFERER')
+    if next_url and '/profile/' in next_url:
+        return HttpResponseRedirect(reverse('profile'))
+    else:
+        return HttpResponseRedirect(reverse('review_detail', args=[slug]))
