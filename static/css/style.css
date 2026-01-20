@@ -2,6 +2,19 @@ body {
     background-color: #F9FAFC;
 }
 
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+}
+
+
+.movie-title-image {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.3));
+}
+
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
@@ -29,22 +42,97 @@ body {
     background-color: #F9FAFC;
 }
 
+
+/* General card styling for other pages (review detail, etc.) */
 .card {
     border: none;
-    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.image-container {
-    position: relative;
+.card-img-top {
+    width: 100%;
+    height: auto;  /* Auto height for detail pages */
+    object-fit: cover;
 }
 
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #188181;
+/* Movie poster card styling - ONLY for index page */
+.movie-poster-card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    max-width: 300px;
+    margin: 0 auto;
 }
+
+.movie-poster-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Movie poster image sizing - 2:3 ratio (standard poster) */
+.movie-poster-card .card-img-top {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.movie-poster-card .card-body {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.movie-poster-card .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.movie-poster-card .card-text {
+    font-size: 0.9rem;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.movie-poster-card .card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 1rem;
+}
+
+
+.author-avatar-small {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.review-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.review-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.review-link:hover .movie-poster-card {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
 
 .scale {
     width: 100%;
@@ -91,22 +179,22 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.review-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
+.review-link:hover,
 .page-link {
     color: #E84610;
 }
 
-.post-title {
+.review-title {
     margin-top: 10%;
     margin-left: 5%;
 }
 
-.post-subtitle {
+.review-subtitle {
     margin-left: 5%;
     color: lightgray;
 }
@@ -158,4 +246,34 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+
+/* Responsive sizing for smaller screens */
+@media (max-width: 768px) {
+    .movie-title-image {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-title-image {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-poster-card {
+        max-width: 100%;
+    }
+    
+    .movie-poster-card .card-img-top {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .movie-poster-card .card-img-top {
+        height: 350px;
+    }
 }
