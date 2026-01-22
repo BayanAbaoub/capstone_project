@@ -127,6 +127,17 @@
   </div>
 </div>
 
+<!-- Auto-dismiss messages after 4 seconds -->
+<script>
+  setTimeout(function() {
+    let alerts = document.querySelectorAll('.alert');
+    alerts.forEach(function(alert) {
+      let bsAlert = new bootstrap.Alert(alert);
+      bsAlert.close();
+    });
+  }, 3000);
+</script>
+
     <main class="flex-shrink-0 main-bg">
      {% if user.is_authenticated %}
     <p class="text-end m-3">You are logged in as {{ user }}</p>
