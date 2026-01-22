@@ -289,6 +289,8 @@ p {
     margin: 2rem 0;
 }
 
+
+
 /* Submit button styling */
 .btn-submit-review {
     background-color: rgba(231, 48, 52, 1);
@@ -343,6 +345,9 @@ p {
     background-color: rgba(200, 40, 44, 1);
     border-color: rgba(200, 40, 44, 1);
 }
+
+
+
 
 /* Responsive sizing for smaller screens */
 @media (max-width: 480px) {
