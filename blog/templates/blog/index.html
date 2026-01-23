@@ -18,11 +18,16 @@
                 <div class="col-md-4">
                     <a href="{% url 'review_detail' review.slug %}" class="review-link">
                         <div class="card mb-4 movie-poster-card">
-                            <!-- Movie poster/featured image at the top -->
+                            <!-- Movie poster with Cloudinary optimization -->
                             {% if review.featured_image %}
-                                <img src="{{ review.featured_image.url }}" class="card-img-top" alt="{{ review.title }}">
+                                {% cloudinary review.featured_image.public_id width=300 height=450 crop="fill" quality="auto" fetch_format="auto" loading="lazy" %}
                             {% else %}
-                                <img src="{% static 'images/default-movie-poster.png' %}" class="card-img-top" alt="{{ review.title }}">
+                                <img src="{% static 'images/default-movie-poster.png' %}" 
+                                     class="card-img-top" 
+                                     alt="{{ review.title }}"
+                                     width="300"
+                                     height="450"
+                                     loading="lazy">
                             {% endif %}
                             
                             <div class="card-body">
