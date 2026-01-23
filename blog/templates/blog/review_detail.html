@@ -29,17 +29,13 @@
                 </div>
                 {% endif %}
             </div>
-<div class="masthead-image">
-    {% if review.featured_image %}
-        {% cloudinary review.featured_image.public_id width=800 crop="limit" quality="auto:good" fetch_format="auto" loading="lazy" class="card-img-top" %}
-    {% else %}
-        <img src="{% static 'images/default-movie-poster.png' %}" 
-             class="card-img-top" 
-             alt="{{ review.title }}"
-             width="800"
-             loading="lazy">
-    {% endif %}
-</div>
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                {% if review.featured_image %}
+                    <img src="{{ review.featured_image.url }}" class="scale" alt="{{ review.title }}">
+                {% else %}
+                    <img src="{% static 'images/cartoon-popcorn.png' %}" class="scale" alt="placeholder">
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
