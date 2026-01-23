@@ -9,17 +9,12 @@
 <html class="h-100" lang="en">
 <head>
     <title>Reel Reviews</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
     <meta charset="UTF-8">
 
     <!-- Preload critical hero image -->
    <link rel="preload" as="image" href="{% static 'images/reel-reviews-new-font.webp' %}" fetchpriority="high">
 
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     <!-- Preconnect to Cloudinary for faster image loading -->
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
@@ -38,10 +33,10 @@
       rel="stylesheet"
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
-    />
+    >
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" >
 
     <!-- Font Awesome - Load asynchronously (non-critical) -->
     <link
@@ -49,12 +44,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
-    />
+    >
     <noscript>
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      />
+      >
     </noscript>
 </head>
 
