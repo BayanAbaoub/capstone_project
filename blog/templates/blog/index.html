@@ -4,12 +4,18 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 text-center my-5">
-            <img src="{% static 'images/reel-reviews-new-font.png' %}" alt="Reel Reviews Logo" class="movie-title-image">
-        </div>
+<div class="row">
+    <div class="col-12 text-center my-5">
+        <!-- Preload and optimize hero image -->
+        <img src="{% static 'images/reel-reviews-new-font.webp' %}" 
+             alt="Reel Reviews Logo" 
+             class="movie-title-image"
+             width="600"
+             height="200"
+             fetchpriority="high"
+             decoding="async">
     </div>
-    
+</div>
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">

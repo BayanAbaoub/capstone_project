@@ -7,18 +7,32 @@
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
-  <head>
+<head>
     <title>Reel Reviews</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
 
- 
-    <!-- Font Awesome CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <!-- Preload critical hero image -->
+   <link rel="preload" as="image" href="{% static 'images/reel-reviews-new-font.webp' %}" fetchpriority="high">
 
-    <!-- Bootstrap CSS -->
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    
+    <!-- Preconnect to Cloudinary for faster image loading -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load only necessary fonts with font-display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Critical CSS - Bootstrap (keep as-is for layout) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -28,7 +42,21 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  </head>
+
+    <!-- Font Awesome - Load asynchronously (non-critical) -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      />
+    </noscript>
+</head>
 
   <body class="d-flex flex-column h-100 main-bg">
     <!-- Navigation -->
