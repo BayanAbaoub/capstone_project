@@ -10,7 +10,7 @@
                 <hr>
                         <!-- Display current profile picture -->
                 <div class="text-center mb-4">
-                    <h5>Current Profile Picture:</h5>
+                    <h2 class="h3">Current Profile Picture:</h2>
                     {% if form.instance.profile_picture and form.instance.profile_picture.url != 'placeholder' %}
                         <img src="{{ form.instance.profile_picture.url }}" alt="Current Profile Picture" class="profile-picture mb-3">
                     {% else %}

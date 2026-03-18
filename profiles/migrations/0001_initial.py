@@ -31,7 +31,9 @@ class Migration(migrations.Migration):
                 (
                     "profile_picture",
                     cloudinary.models.CloudinaryField(
-                        default="placeholder", max_length=255, verbose_name="image"
+                        default="placeholder",
+                        max_length=255,
+                        verbose_name="image",
                     ),
                 ),
                 ("created_on", models.DateTimeField(auto_now_add=True)),

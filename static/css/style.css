@@ -116,6 +116,7 @@ p {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
@@ -210,6 +211,7 @@ p {
     color: #333;
     margin-bottom: 1.5rem;
 }
+
 
 
 .btn-signup,

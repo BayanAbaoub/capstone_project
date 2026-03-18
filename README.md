@@ -79,9 +79,16 @@ Now all test results pass:
 ![screenshot of django test results](static/images/screenshots/django-test-results.png)
 
 
-I validated my html and css on validator.w3.org. 
+I validated my html and css on validator.w3.org. CSS had no problems on first pass whilst some pages had some html issues. They were very minor issues such as skipping heading levels which were easy to rectify.
+![screeshot of css validation results](static/images/screenshots/css-validation.png)
+![screenshot of html validation results](static/images/screenshots/html-validation.jpeg)
+The registration page has some validation issues due to Django's allauth built-in code. I opted to keep it as is to ensure that I don't interfere with Django's authentication which I have used throughout the project.
+![screenshot of html validation error](static/images/screenshots/html-validation-error.png)
 
-My lighthouse recents were not the best due to the amount of images I have on my website. In the future, I would like to find an alternative solution to fix this.
+
+
+
+My lighthouse recents were not the best due to the amount of images I have on my website. Cloudinary is improving media management, but it can still reduce Lighthouse Performance because images and scripts are served from a third-party domain, which adds extra network latency and can delay rendering. Since Cloudinary is a required dependency for this project, this is an accepted tradeoff for now, and the score impact is documented as a known limitation. In the future, I would like to find an alternative solution to fix this.
 
 
 ## Issues
@@ -96,7 +103,9 @@ I created an ERD diagram for my initial features but didn’t add to it as I add
 ## AI
 CoPilot as a problem solving tool can be very effective. I find it most beneficial when you ask specific questions that have the appropriate context included. I used AI to further explain the steps for creating a new Django app, as well as to help debug my code. This involved feeding it error messages with the prompt to explain the error code as well as provide the solution which is invaluable to a beginner. 
 
-I used AI to help solve the PEP8 guideline issues I had in my code. CoPilot advised me to install pycodestyle and flake8 in my virtual environment. I was then able to check key files in my project for spacing, blank-;ine structure, line-length formatting, trailing whitespace, and minor stye issues such as unnecessary else blocks after return. Copilot helped identify exact violations from pycodestyle, explained each warning in beginner-friendly terms, and guided targeted fixes (for example, correcting top-level function separation and end-of-file newline rules) without changing application behavior. After applying the updates, I re-ran the style checks in the project virtual environment and confirmed the file passed with no remaining PEP 8 errors.
+I used AI as a development assistant while building the Profiles section of my Django blog project by iterating on features, debugging issues, and improving code quality. It helped me scaffold and refine profile-related templates, forms, and views, troubleshoot layout and accessibility problems (such as heading hierarchy and form rendering), and apply style/lint fixes to keep the codebase consistent with PEP 8 standards. I still made the final implementation decisions, tested each change in context, and adjusted the generated suggestions to match my project structure, design, and requirements.
+
+I also used AI to help solve the PEP8 guideline issues I had in my code. CoPilot advised me to install pycodestyle and flake8 in my virtual environment. I was then able to check key files in my project for spacing, blank-line structure, line-length formatting, trailing whitespace, and minor stye issues such as unnecessary else blocks after return. Copilot helped identify exact violations from pycodestyle, explained each warning in beginner-friendly terms, and guided targeted fixes (for example, correcting top-level function separation and end-of-file newline rules) without changing application behavior. After applying the updates, I re-ran the style checks in the project virtual environment and confirmed the file passed with no remaining PEP 8 errors.
 ## Future Features
 Testing is the optimal time to realise what features need small additions to improve their usability significantly or larger additions to continue to exand the initial inteded purpose of the website. Some examples of small improvements would be to remove the notification "you are not logged in" as new users might find it off-putting; add character limits to the comment and bio sections; restrict submissions to only registered users. Some larger additions include expansion of the profile feature to allow friend requests and messaging to encourage further conversation.
 
