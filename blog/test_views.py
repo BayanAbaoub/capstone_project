@@ -4,6 +4,7 @@ from django.test import TestCase
 from .forms import CommentForm
 from .models import Review
 
+
 class TestBlogViews(TestCase):
 
     def setUp(self):
@@ -13,11 +14,11 @@ class TestBlogViews(TestCase):
             email="test@test.com"
         )
         self.review = Review(
-            title="Movie Review Title", 
+            title="Movie Review Title",
             author=self.user,
-            slug="movie-review-title", 
+            slug="movie-review-title",
             excerpt="Movie review excerpt",
-            content="Movie review content", 
+            content="Movie review content",
             status=1
         )
         self.review.save()

@@ -7,8 +7,8 @@
     </p>
     {% if unused_codes %}
         <textarea class="recovery-codes" rows="{{ unused_codes|length }}" readonly>{% for code in unused_codes %}{{ code }}
-{% endfor %}
-</textarea>
+        {% endfor %}
+        </textarea>
     {% endif %}
     <ul class="actions">
         {% if unused_codes %}

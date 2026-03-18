@@ -5,11 +5,13 @@ from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
 # Create your models here.
 
+
 class UserProfile(models.Model):
     """
     User profile model for extended user information
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='profile')
     bio = models.TextField(max_length=500, blank=True)
     profile_picture = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)

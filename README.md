@@ -71,7 +71,13 @@ ERD diagrams are imperative in these type of projects to ensure the data you sto
 
 
 ## Testing 
-I tested the forms using Django's built-in testing framework. These were extremely useful as this was how I was able to realise that my submission data was not being recorded and was able to rectify this. 
+I tested my forms and views.py by combining unit tests with style checks: I used Django TestCase classes in test_forms.py, test_forms.py, and test_views.py to verify form validation rules, required fields, and expected error messages, then used the Django test Client to send GET/POST requests to view routes and assert status codes, redirects, templates, and context data (for example with assertEqual, assertRedirects, and assertTemplateUsed). After functional testing, I ran pycodestyle (and optionally flake8) on views.py and the rest of the app to confirm PEP 8 compliance, then fixed any reported issues and re-ran checks until the output was clean.
+
+At first, submission records were not being saved because the form handling flow in the submit view had a logic fault, so a successful POST did not persist data as expected. Writing and running automated tests made this visible immediately: a view test sent valid form data to the submit endpoint and then asserted that the database count increased (or that a new object with expected field values existed), but the assertion failed. That failing test confirmed the bug was in the save path rather than in manual input, and after fixing the view/form handling, re-running the same test passed, proving that submission data was now being recorded correctly.
+
+Now all test results pass:
+![screenshot of django test results](static/images/screenshots/django-test-results.png)
+
 
 I validated my html and css on validator.w3.org. 
 
@@ -90,6 +96,7 @@ I created an ERD diagram for my initial features but didn’t add to it as I add
 ## AI
 CoPilot as a problem solving tool can be very effective. I find it most beneficial when you ask specific questions that have the appropriate context included. I used AI to further explain the steps for creating a new Django app, as well as to help debug my code. This involved feeding it error messages with the prompt to explain the error code as well as provide the solution which is invaluable to a beginner. 
 
+I used AI to help solve the PEP8 guideline issues I had in my code. CoPilot advised me to install pycodestyle and flake8 in my virtual environment. I was then able to check key files in my project for spacing, blank-;ine structure, line-length formatting, trailing whitespace, and minor stye issues such as unnecessary else blocks after return. Copilot helped identify exact violations from pycodestyle, explained each warning in beginner-friendly terms, and guided targeted fixes (for example, correcting top-level function separation and end-of-file newline rules) without changing application behavior. After applying the updates, I re-ran the style checks in the project virtual environment and confirmed the file passed with no remaining PEP 8 errors.
 ## Future Features
 Testing is the optimal time to realise what features need small additions to improve their usability significantly or larger additions to continue to exand the initial inteded purpose of the website. Some examples of small improvements would be to remove the notification "you are not logged in" as new users might find it off-putting; add character limits to the comment and bio sections; restrict submissions to only registered users. Some larger additions include expansion of the profile feature to allow friend requests and messaging to encourage further conversation.
 

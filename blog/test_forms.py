@@ -15,11 +15,11 @@ class TestCommentForm(TestCase):
             email="test@test.com"
         )
         self.review = Review.objects.create(
-            title="Movie Review Title", 
+            title="Movie Review Title",
             author=self.user,
-            slug="movie-review-title", 
+            slug="movie-review-title",
             excerpt="Movie review excerpt",
-            content="Movie review content", 
+            content="Movie review content",
             status=1
         )
 
@@ -30,7 +30,7 @@ class TestCommentForm(TestCase):
     def test_form_is_invalid(self):
         comment_form = CommentForm({'body': ''})
         self.assertFalse(comment_form.is_valid(), msg="Form is valid")
-    
+
     def test_successful_comment_submission(self):
         """Test for posting a comment on a review"""
         self.client.login(

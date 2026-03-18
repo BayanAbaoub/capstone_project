@@ -18,7 +18,7 @@ class TestSubmitForm(TestCase):
     def setUp(self):
         """Creates submit page content"""
         self.submit_content = Submit(
-            title="Submit a Review", 
+            title="Submit a Review",
             content="Share your movie reviews with us!"
         )
         self.submit_content.save()

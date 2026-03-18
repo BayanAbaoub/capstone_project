@@ -7,8 +7,12 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ['bio', 'profile_picture']
         widgets = {
-            'bio': forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),
-            'profile_picture': forms.FileInput(attrs={'class': 'form-control'}), 
+            'bio': forms.Textarea(
+                attrs={'rows': 4, 'class': 'form-control'}
+            ),
+            'profile_picture': forms.FileInput(
+                attrs={'class': 'form-control'}
+            ),
         }
         labels = {
             'bio': 'Biography',

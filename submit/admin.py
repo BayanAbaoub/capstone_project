@@ -10,10 +10,8 @@ class SubmitAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('content',)
 
+
 @admin.register(SubmitRequest)
 class SubmitRequestAdmin(admin.ModelAdmin):
 
     list_display = ('submission', 'read',)
-
-
-
