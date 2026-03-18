@@ -88,8 +88,9 @@ The registration page has some validation issues due to Django's allauth built-i
 
 
 
-My lighthouse recents were not the best due to the amount of images I have on my website. Cloudinary is improving media management, but it can still reduce Lighthouse Performance because images and scripts are served from a third-party domain, which adds extra network latency and can delay rendering. Since Cloudinary is a required dependency for this project, this is an accepted tradeoff for now, and the score impact is documented as a known limitation. In the future, I would like to find an alternative solution to fix this.
-
+Initially, my lighthouse recents were poor due to the amount of images I have on my website. Cloudinary is improving media management, but it can still reduce Lighthouse Performance because images and scripts are served from a third-party domain, which adds extra network latency and can delay rendering. Since Cloudinary is a required dependency for this project, this is an accepted tradeoff for now, and the score impact is documented as a known limitation. However, using a stable, high-speed internet connection and the latest version of Chrome improved the Lighthouse results by reducing network delays and running tests on a more optimized browser engine. This gave better loading and rendering metrics, so the scores were more representative of the site’s best real-world performance conditions. 
+![screenshot of lighthouse score for home page](static/images/screenshots/lighthouse-1.JPG)
+![screenshot of lighthouse score for login](static/images/screenshots/lighthouse-2.JPG)
 
 ## Issues
 The first issue I encountered was trouble deploying. Whilst following a set-uo guide it can be easy to misread or mistype instructions. Luckily, after reviewing the steps again with fresh eyes, I was able to fix my deployment issue, which was due to a typo in my Procfile.  
